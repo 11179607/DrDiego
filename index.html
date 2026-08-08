@@ -1047,6 +1047,7 @@
             display: block;
             padding: 0;
             background: var(--color-bg);
+            overflow-x: hidden;
         }
 
         .landing {
@@ -1131,12 +1132,15 @@
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: 26px;
+            gap: 18px;
             margin-left: auto;
             margin-right: 24px;
         }
 
         .nav-menu a {
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
             color: var(--color-text-light);
             font-size: 13px;
             font-weight: 600;
@@ -1170,6 +1174,52 @@
             background: var(--color-primary);
             color: #fff;
             transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            background: #fff;
+            color: var(--color-dark);
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            margin: 4px auto;
+            border-radius: 2px;
+            background: currentColor;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .header.nav-open .menu-toggle span:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .header.nav-open .menu-toggle span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .header.nav-open .menu-toggle span:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        section[id] {
+            scroll-margin-top: 100px;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        summary:focus-visible,
+        video:focus-visible {
+            outline: 3px solid rgba(23, 107, 135, 0.45);
+            outline-offset: 3px;
         }
 
         .hero {
