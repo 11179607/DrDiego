@@ -1651,6 +1651,179 @@
             text-transform: uppercase;
         }
 
+        .results-note,
+        .video-note {
+            max-width: 860px;
+            margin: 16px auto 0;
+            color: var(--color-text-light);
+            font-size: 12px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .faq-section {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 32px 78px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .faq-section .section-heading {
+            max-width: 720px;
+            margin-bottom: 24px;
+        }
+
+        .faq-list {
+            display: grid;
+            gap: 10px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 8px 20px rgba(16, 47, 67, 0.04);
+        }
+
+        .faq-item summary {
+            position: relative;
+            padding: 18px 52px 18px 20px;
+            color: var(--color-dark);
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 700;
+            list-style: none;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            color: var(--color-primary);
+            content: '+';
+            font-size: 22px;
+            font-weight: 400;
+            line-height: 1;
+            transform: translateY(-50%);
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+
+        .faq-item p {
+            max-width: none;
+            margin: 0;
+            padding: 0 20px 18px;
+            color: var(--color-text-light);
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .consultation-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            margin-top: 18px;
+            padding: 0 16px;
+            border-radius: 7px;
+            background: var(--color-dark);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+
+        .consultation-button:hover {
+            background: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        .site-footer {
+            max-width: 1116px;
+            margin: 0 auto;
+            padding: 0 0 30px;
+        }
+
+        .footer-details {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            padding: 30px 0 8px;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .footer-detail h2 {
+            margin: 0 0 10px;
+            color: var(--color-dark);
+            font-size: 13px;
+            letter-spacing: 0.1px;
+        }
+
+        .footer-detail p,
+        .footer-detail a {
+            display: block;
+            margin: 0;
+            color: var(--color-text-light);
+            font-size: 12px;
+            line-height: 1.65;
+            text-decoration: none;
+        }
+
+        .footer-detail a {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        .site-footer .footer-text {
+            max-width: none;
+            margin: 18px 0 0;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 20;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 48px;
+            padding: 0 17px;
+            border-radius: 999px;
+            background: #168a61;
+            box-shadow: 0 12px 26px rgba(22, 138, 97, 0.28);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .whatsapp-float:hover {
+            box-shadow: 0 16px 32px rgba(22, 138, 97, 0.36);
+            transform: translateY(-3px);
+        }
+
+        .whatsapp-float svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 2;
+        }
+
         .clinical-section {
             max-width: 1116px;
             margin: 6px auto 0;
@@ -1836,7 +2009,8 @@
             .consultation-section,
             .smile-process-section,
             .results-section,
-            .video-section {
+            .video-section,
+            .faq-section {
                 padding-left: 20px;
                 padding-right: 20px;
             }
@@ -1869,11 +2043,37 @@
                 margin-left: 20px;
                 margin-right: 20px;
             }
+
+            .site-footer {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            .site-footer .footer-text {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .footer-details {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
         }
 
         @media (max-width: 560px) {
             .smile-process-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .footer-details {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .whatsapp-float {
+                right: 16px;
+                bottom: 16px;
+                min-height: 46px;
+                padding: 0 15px;
             }
         }
 
@@ -1907,6 +2107,7 @@
             <nav class="nav-menu" aria-label="Navegación principal">
                 <a href="#inicio">Inicio</a>
                 <a href="#servicios">Servicios</a>
+                <a href="#preguntas">Preguntas frecuentes</a>
             </nav>
             <a class="header-cta" href="https://wa.me/573216578045?text=Hola%2C%20quiero%20solicitar%20una%20valoraci%C3%B3n%20para%20un%20dise%C3%B1o%20de%20sonrisa." target="_blank" rel="noopener noreferrer">Solicitar valoración</a>
         </header>
@@ -2002,6 +2203,7 @@
                     <figcaption><span>Diseño completo</span>Resultado del caso</figcaption>
                 </figure>
       </div>
+      <p class="results-note">Las imágenes corresponden a casos clínicos individuales. Los resultados pueden variar según el diagnóstico y el plan de tratamiento.</p>
     </section>
 
     <section class="video-section" id="videos" aria-labelledby="videos-titulo">
@@ -2021,6 +2223,33 @@
           <figcaption><span>Testimonio</span>Conoce la experiencia de uno de nuestros pacientes.</figcaption>
         </figure>
       </div>
+      <p class="video-note">Los testimonios y casos clínicos deben publicarse únicamente con autorización previa de cada paciente.</p>
+    </section>
+
+    <section class="faq-section" id="preguntas" aria-labelledby="preguntas-titulo">
+      <div class="section-heading">
+        <span class="eyebrow">Resolvemos tus dudas</span>
+        <h2 id="preguntas-titulo">Preguntas frecuentes</h2>
+        <p>Información clara para que puedas dar el primer paso con tranquilidad.</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>¿Qué ocurre en la primera valoración?</summary>
+          <p>Se conversa sobre tus expectativas, se revisan tus necesidades y se determina el enfoque adecuado para tu caso.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Todos los diseños de sonrisa son iguales?</summary>
+          <p>No. Cada tratamiento se planifica de manera individual, teniendo en cuenta la salud oral, la armonía facial y los objetivos del paciente.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuánto puede durar un tratamiento?</summary>
+          <p>El tiempo depende del diagnóstico y del plan clínico. Durante la valoración se explican las etapas y los tiempos estimados para tu caso.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Qué cuidados requiere el resultado?</summary>
+          <p>Al finalizar el tratamiento se entregan indicaciones personalizadas de higiene, controles y cuidados para mantener una sonrisa saludable.</p>
+        </details>
+      </div>
     </section>
 
     <section class="consultation-section" id="contacto" aria-labelledby="contacto-titulo">
@@ -2033,13 +2262,36 @@
             <aside class="consultation-card" aria-label="Información de agenda">
                 <strong>Atención con cita previa</strong>
                 <span>Comunícate con el consultorio por sus canales oficiales para consultar disponibilidad y preparar tu valoración.</span>
+                <a class="consultation-button" href="https://wa.me/573216578045?text=Hola%2C%20quiero%20solicitar%20una%20valoraci%C3%B3n%20para%20un%20dise%C3%B1o%20de%20sonrisa." target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
             </aside>
         </section>
 
-        <div class="footer-text">
-            Dr. Diego Franco · Odontología estética y diseño de sonrisa · Atención con cita previa
-        </div>
+        <footer class="site-footer">
+            <div class="footer-details">
+                <section class="footer-detail" aria-labelledby="footer-contacto">
+                    <h2 id="footer-contacto">Agenda y contacto</h2>
+                    <a href="https://wa.me/573216578045?text=Hola%2C%20quiero%20solicitar%20una%20valoraci%C3%B3n%20para%20un%20dise%C3%B1o%20de%20sonrisa." target="_blank" rel="noopener noreferrer">WhatsApp · +57 321 657 8045</a>
+                </section>
+                <section class="footer-detail" aria-labelledby="footer-atencion">
+                    <h2 id="footer-atencion">Atención</h2>
+                    <p>Atención con cita previa.</p>
+                    <p>Confirma disponibilidad y horarios por WhatsApp.</p>
+                </section>
+                <section class="footer-detail" aria-labelledby="footer-informacion">
+                    <h2 id="footer-informacion">Ubicación y canales oficiales</h2>
+                    <p>Solicita por WhatsApp la ubicación del consultorio y los enlaces a las redes oficiales.</p>
+                </section>
+            </div>
+            <div class="footer-text">
+                Dr. Diego Franco · Odontología estética y diseño de sonrisa · Atención con cita previa
+            </div>
+        </footer>
     </div>
+
+    <a class="whatsapp-float" href="https://wa.me/573216578045?text=Hola%2C%20quiero%20solicitar%20una%20valoraci%C3%B3n%20para%20un%20dise%C3%B1o%20de%20sonrisa." target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"></path><path d="M8.8 9.2c.3 2 1.9 3.7 4 4.1"></path></svg>
+        <span>WhatsApp</span>
+    </a>
 
     <!-- ============================================================
     JAVASCRIPT (GSAP)
@@ -2056,7 +2308,7 @@
 
                 tl.from('.header', { y: -50, opacity: 0, duration: 1, ease: 'power2.out' })
                     .from('.hero', { y: 30, opacity: 0, duration: 1, ease: 'power2.out' }, '-=0.4')
-                    .from('.smile-process-section, .results-section, .video-section, .consultation-section', { y: 40, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power2.out' }, '-=0.3')
+                    .from('.smile-process-section, .results-section, .video-section, .faq-section, .consultation-section', { y: 40, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power2.out' }, '-=0.3')
                     .from('.footer-text', { opacity: 0, y: 20, duration: 0.8, ease: 'power2.out' }, '-=0.3');
 
                 document.querySelectorAll('.hero-image img').forEach((img) => {
