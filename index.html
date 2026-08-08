@@ -25,6 +25,18 @@
             box-sizing: border-box;
         }
 
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         :root {
             --color-primary: #2563eb;
             --color-primary-light: #3b82f6;
@@ -287,6 +299,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            top: 35px;
         }
 
         .hero-image::before {
@@ -1074,8 +1087,9 @@
             width: 44px;
             height: 44px;
             border-radius: 12px;
-            background: var(--color-dark);
+            background: transparent;
             box-shadow: none;
+            overflow: hidden;
         }
 
         .logo-icon svg {
@@ -1160,11 +1174,22 @@
 
         .hero {
             max-width: 1180px;
-            min-height: 570px;
+            min-height: auto;
             margin: 0 auto;
-            padding: 40px 32px 84px;
+            padding: 32px 32px 84px;
             grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
             gap: 76px;
+            align-items: stretch;
+        }
+
+        .hero-text {
+            position: relative;
+            top: 0;
+        }
+
+        .hero-image {
+            top: 0;
+            align-self: stretch;
         }
 
         .hero-text .subtitle {
@@ -1265,9 +1290,15 @@
         }
 
         .hero-image img {
-            max-width: 480px;
+            width: auto;
+            height: 100%;
+            max-width: 100%;
+            max-height: none;
             border-radius: 18px;
             box-shadow: 0 24px 55px rgba(16, 47, 67, 0.16);
+            aspect-ratio: auto;
+            object-fit: contain;
+            object-position: center;
         }
 
         .photo-caption {
@@ -1292,6 +1323,18 @@
             padding: 78px 32px;
             position: relative;
             z-index: 1;
+        }
+
+        #servicios {
+            padding-top: 30px;
+            padding-bottom: 0;
+        }
+
+        .services-title {
+            color: var(--color-dark);
+            font-size: clamp(30px, 3.5vw, 42px);
+            line-height: 1.15;
+            letter-spacing: -1.4px;
         }
 
         .section-heading {
@@ -1379,6 +1422,69 @@
         .service-card:hover .badge-servicio {
             background: transparent;
             color: var(--color-secondary);
+        }
+
+        .smile-process-section {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 32px 78px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .smile-process-section .section-heading {
+            max-width: 720px;
+            margin: 0 0 10px;
+        }
+
+        .smile-process-section .section-heading p {
+            margin-top: 6px;
+        }
+
+        .smile-process-subtitle {
+            margin-top: 6px;
+            color: var(--color-text-light);
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.55;
+            letter-spacing: 0;
+        }
+
+        .smile-process-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .smile-process-card {
+            overflow: hidden;
+            margin: 0;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 8px 20px rgba(16, 47, 67, 0.05);
+        }
+
+        .smile-process-card img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .smile-process-card figcaption {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 13px;
+            color: var(--color-dark);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .smile-process-card figcaption span {
+            color: var(--color-primary);
+            font-size: 10px;
+            letter-spacing: 0.8px;
         }
 
         .clinical-section {
@@ -1542,22 +1648,35 @@
                 text-align: left;
             }
 
+            .hero-text {
+                top: 0;
+            }
+
             .hero-text h1 {
                 font-size: 42px;
             }
 
             .hero-image {
                 order: -1;
+                top: 0;
             }
 
             .hero-image img {
+                width: 100%;
+                height: auto;
                 max-width: 350px;
+                aspect-ratio: 1 / 1;
             }
 
             .content-section,
-            .consultation-section {
+            .consultation-section,
+            .smile-process-section {
                 padding-left: 20px;
                 padding-right: 20px;
+            }
+
+            .smile-process-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
             }
 
             .clinical-section {
@@ -1581,6 +1700,12 @@
             }
         }
 
+        @media (max-width: 560px) {
+            .smile-process-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -1601,7 +1726,7 @@
         <header class="header">
             <a href="#inicio" class="logo" aria-label="Ir al inicio">
                 <div class="logo-icon" aria-hidden="true">
-                    <img src="img/logo2.jpeg" alt="" />
+                    <img src="img/logo2-transparent.png" alt="" />
                 </div>
                 <div class="logo-text-wrapper">
                     <div class="logo-text">Dr. <span>Diego Franco</span></div>
@@ -1611,7 +1736,6 @@
             <nav class="nav-menu" aria-label="Navegación principal">
                 <a href="#inicio">Inicio</a>
                 <a href="#servicios">Servicios</a>
-                <a href="#enfoque">Enfoque clínico</a>
             </nav>
             <a class="header-cta" href="#contacto">Solicitar valoración</a>
         </header>
@@ -1629,7 +1753,6 @@
                         Solicitar valoración
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
-                    <a href="#enfoque" class="hero-link">Conoce nuestro enfoque</a>
                 </div>
                 <ul class="hero-points" aria-label="Pilares de atención">
                     <li>Valoración individual</li>
@@ -1647,72 +1770,36 @@
         SERVICIOS - SOLO DISEÑO DE SONRISAS
         ============================================================ -->
         <section class="content-section" id="servicios" aria-labelledby="servicios-titulo">
-            <div class="section-heading">
-                <span class="eyebrow">Servicios</span>
-                <h2 id="servicios-titulo">Tratamientos pensados para tu salud, función y estética.</h2>
-                <p>La indicación se define después de una valoración clínica. Cada plan se adapta a las necesidades y objetivos de la persona.</p>
-            </div>
-            <div class="services-container">
-                <div class="service-grid single" id="grid-sonrisas">
-                    <div class="service-card">
-                        <span class="service-index">01</span>
-                        <h3>Carillas cerámicas</h3>
-                        <p>Alternativa estética para modificar forma, proporción o color cuando la valoración lo indica.</p>
-                        <span class="badge-servicio">Estética dental</span>
-                    </div>
-                    <div class="service-card">
-                        <span class="service-index">02</span>
-                        <h3>Blanqueamiento dental</h3>
-                        <p>Protocolo profesional orientado a cuidar la estructura dental y evaluar sensibilidad.</p>
-                        <span class="badge-servicio">Valoración previa</span>
-                    </div>
-                    <div class="service-card">
-                        <span class="service-index">03</span>
-                        <h3>Rehabilitación oral</h3>
-                        <p>Enfoque integral para recuperar función, comodidad y apariencia de forma planificada.</p>
-                        <span class="badge-servicio">Enfoque integral</span>
-                    </div>
-                    <div class="service-card">
-                        <span class="service-index">04</span>
-                        <h3>Gingivectomía estética</h3>
-                        <p>Procedimiento indicado para mejorar la proporción entre encía y diente según el caso clínico.</p>
-                        <span class="badge-servicio">Armonía gingival</span>
-                    </div>
-                    <div class="service-card">
-                        <span class="service-index">05</span>
-                        <h3>Diseño de sonrisa</h3>
-                        <p>Análisis de proporciones, color, forma y función para construir un plan de tratamiento coherente.</p>
-                        <span class="badge-servicio">Plan personalizado</span>
-                    </div>
-                    <div class="service-card">
-                        <span class="service-index">06</span>
-                        <h3>Planificación digital</h3>
-                        <p>Herramientas de visualización para conversar con mayor claridad sobre las alternativas de tratamiento.</p>
-                        <span class="badge-servicio">Decisiones informadas</span>
-                    </div>
-                </div>
-            </div>
+            <h2 class="services-title" id="servicios-titulo">Servicios</h2>
         </section>
 
-        <section class="clinical-section" id="enfoque" aria-labelledby="enfoque-titulo">
-            <span class="eyebrow">Nuestro enfoque clínico</span>
-            <h2 id="enfoque-titulo">Las decisiones estéticas deben empezar por una valoración responsable.</h2>
-            <div class="clinical-grid">
-                <article class="clinical-card">
-                    <span>01 · ESCUCHAR</span>
-                    <h3>Entender tu objetivo</h3>
-                    <p>Conversamos sobre lo que te gustaría mejorar y revisamos los factores clínicos que intervienen en tu caso.</p>
-                </article>
-                <article class="clinical-card">
-                    <span>02 · ANALIZAR</span>
-                    <h3>Planificar con claridad</h3>
-                    <p>Definimos alternativas, prioridades y una ruta de tratamiento comprensible antes de tomar decisiones.</p>
-                </article>
-                <article class="clinical-card">
-                    <span>03 · ACOMPAÑAR</span>
-                    <h3>Cuidar cada etapa</h3>
-                    <p>Realizamos seguimiento y resolvemos dudas para que vivas el proceso con información y tranquilidad.</p>
-                </article>
+        <section class="smile-process-section" aria-labelledby="proceso-sonrisa-titulo">
+            <div class="section-heading">
+                <span class="eyebrow">Diseño de sonrisa paso a paso</span>
+                <h2 id="proceso-sonrisa-titulo" class="smile-process-subtitle">Un proceso planificado para cuidar cada detalle.</h2>
+                <p>Conoce las etapas que pueden hacer parte de un diseño de sonrisa. La secuencia se adapta a la valoración de cada paciente.</p>
+            </div>
+            <div class="smile-process-grid">
+                <figure class="smile-process-card">
+                    <img src="img/1.jpeg" alt="Valoración inicial de diseño de sonrisa" loading="lazy" />
+                    <figcaption><span>01</span> Valoración</figcaption>
+                </figure>
+                <figure class="smile-process-card">
+                    <img src="img/2.jpeg" alt="Preparación dental para diseño de sonrisa" loading="lazy" />
+                    <figcaption><span>02</span> Preparación</figcaption>
+                </figure>
+                <figure class="smile-process-card">
+                    <img src="img/3.jpeg" alt="Planificación de laboratorio para diseño de sonrisa" loading="lazy" />
+                    <figcaption><span>03</span> Laboratorio</figcaption>
+                </figure>
+                <figure class="smile-process-card">
+                    <img src="img/4.jpeg" alt="Prueba de diseño de sonrisa" loading="lazy" />
+                    <figcaption><span>04</span> Prueba de diseño</figcaption>
+                </figure>
+                <figure class="smile-process-card">
+                    <img src="img/5.jpeg" alt="Elección de color dental" loading="lazy" />
+                    <figcaption><span>05</span> Elección del color</figcaption>
+                </figure>
             </div>
         </section>
 
@@ -1749,8 +1836,7 @@
 
                 tl.from('.header', { y: -50, opacity: 0, duration: 1, ease: 'power2.out' })
                     .from('.hero', { y: 30, opacity: 0, duration: 1, ease: 'power2.out' }, '-=0.4')
-                    .from('.service-grid .service-card', { y: 40, opacity: 0, stagger: 0.08, duration: 0.8, ease: 'back.out(1.7)' }, '-=0.2')
-                    .from('.clinical-section, .consultation-section', { y: 40, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power2.out' }, '-=0.3')
+                    .from('.smile-process-section, .consultation-section', { y: 40, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power2.out' }, '-=0.3')
                     .from('.footer-text', { opacity: 0, y: 20, duration: 0.8, ease: 'power2.out' }, '-=0.3');
 
                 document.querySelectorAll('.hero-image img').forEach((img) => {
