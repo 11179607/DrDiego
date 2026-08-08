@@ -1463,12 +1463,15 @@
             border-radius: 12px;
             background: #fff;
             box-shadow: 0 8px 20px rgba(16, 47, 67, 0.05);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .smile-process-card img {
             display: block;
             width: 100%;
             height: auto;
+            transition: transform 0.35s ease;
         }
 
         .smile-process-card figcaption {
@@ -1485,6 +1488,159 @@
             color: var(--color-primary);
             font-size: 10px;
             letter-spacing: 0.8px;
+        }
+
+        .results-section {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 78px 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .results-section .section-heading {
+            max-width: 720px;
+            margin-bottom: 28px;
+        }
+
+        .case-comparison-grid,
+        .complete-design-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            max-width: 860px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .complete-design-grid {
+            margin-top: 20px;
+        }
+
+        .case-figure {
+            overflow: hidden;
+            margin: 0;
+            border: 1px solid var(--color-border);
+            border-radius: 14px;
+            background: #fff;
+            box-shadow: 0 10px 24px rgba(16, 47, 67, 0.06);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .case-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform 0.35s ease;
+        }
+
+        .case-figure figcaption {
+            padding: 13px 16px;
+            color: var(--color-dark);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .case-figure figcaption span {
+            display: block;
+            margin-bottom: 3px;
+            color: var(--color-primary);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        @media (hover: hover) {
+            .smile-process-card:hover,
+            .case-figure:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 16px 30px rgba(16, 47, 67, 0.12);
+            }
+
+            .smile-process-card:hover img,
+            .case-figure:hover img {
+                transform: scale(1.025);
+            }
+        }
+
+        .smile-process-card.is-moving,
+        .case-figure.is-moving {
+            animation: photo-card-click 0.58s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .smile-process-card.is-moving img,
+        .case-figure.is-moving img {
+            animation: photo-image-click 0.58s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        @keyframes photo-card-click {
+            0%, 100% { transform: translateY(0) scale(1); }
+            45% { transform: translateY(-9px) scale(1.012); }
+        }
+
+        @keyframes photo-image-click {
+            0%, 100% { transform: scale(1); }
+            45% { transform: scale(1.055); }
+        }
+
+        .video-section {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 32px 78px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .video-section .section-heading {
+            max-width: 720px;
+            margin-bottom: 24px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 440px);
+            justify-content: center;
+        }
+
+        .video-card {
+            overflow: hidden;
+            margin: 0;
+            border: 1px solid var(--color-border);
+            border-radius: 14px;
+            background: #fff;
+            box-shadow: 0 12px 28px rgba(16, 47, 67, 0.08);
+        }
+
+        .video-frame {
+            background: var(--color-dark);
+            line-height: 0;
+        }
+
+        .video-frame video {
+            display: block;
+            width: 100%;
+            max-height: 500px;
+            background: var(--color-dark);
+        }
+
+        .video-card figcaption {
+            padding: 14px 16px;
+            color: var(--color-dark);
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.45;
+        }
+
+        .video-card figcaption span {
+            display: block;
+            margin-bottom: 3px;
+            color: var(--color-primary);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .clinical-section {
@@ -1670,13 +1826,20 @@
 
             .content-section,
             .consultation-section,
-            .smile-process-section {
+            .smile-process-section,
+            .results-section,
+            .video-section {
                 padding-left: 20px;
                 padding-right: 20px;
             }
 
             .smile-process-grid {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .case-comparison-grid,
+            .complete-design-grid {
+                gap: 14px;
             }
 
             .clinical-section {
@@ -1737,7 +1900,7 @@
                 <a href="#inicio">Inicio</a>
                 <a href="#servicios">Servicios</a>
             </nav>
-            <a class="header-cta" href="#contacto">Solicitar valoración</a>
+            <a class="header-cta" href="https://wa.me/573216578045?text=Hola%2C%20quiero%20solicitar%20una%20valoraci%C3%B3n%20para%20un%20dise%C3%B1o%20de%20sonrisa." target="_blank" rel="noopener noreferrer">Solicitar valoración</a>
         </header>
 
         <!-- ============================================================
@@ -1749,7 +1912,7 @@
                 <h1>Una sonrisa diseñada con <span>criterio clínico.</span></h1>
                 <p>Planificamos cada tratamiento desde la salud oral, la armonía facial y las expectativas de cada paciente.</p>
                 <div class="hero-actions">
-                    <a href="#contacto" class="btn-hero">
+                    <a href="https://wa.me/573216578045?text=Hola%2C%20quiero%20solicitar%20una%20valoraci%C3%B3n%20para%20un%20dise%C3%B1o%20de%20sonrisa." class="btn-hero" target="_blank" rel="noopener noreferrer">
                         Solicitar valoración
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
@@ -1803,7 +1966,56 @@
             </div>
         </section>
 
-        <section class="consultation-section" id="contacto" aria-labelledby="contacto-titulo">
+    <section class="results-section" id="resultados" aria-labelledby="resultados-titulo">
+            <div class="section-heading">
+                <span class="eyebrow">Casos clínicos</span>
+                <h2 id="resultados-titulo">Antes y después</h2>
+                <p>Resultados de tratamientos de diseño de sonrisa. Cada caso responde a un diagnóstico y plan de tratamiento individual.</p>
+            </div>
+
+            <div class="case-comparison-grid">
+                <figure class="case-figure">
+                    <img src="img/antes.jpeg" alt="Caso clínico antes de un diseño de sonrisa" loading="lazy" />
+                    <figcaption><span>Registro inicial</span>Antes del tratamiento</figcaption>
+                </figure>
+                <figure class="case-figure">
+                    <img src="img/despues.jpeg" alt="Caso clínico después de un diseño de sonrisa" loading="lazy" />
+                    <figcaption><span>Resultado final</span>Después del tratamiento</figcaption>
+                </figure>
+            </div>
+
+            <div class="complete-design-grid">
+                <figure class="case-figure">
+                    <img src="img/diseñocompleto.jpeg" alt="Diseño de sonrisa completo con comparación antes y después" loading="lazy" />
+                    <figcaption><span>Diseño completo</span>Comparación del caso</figcaption>
+                </figure>
+                <figure class="case-figure">
+                    <img src="img/diseñocompleto2.jpeg" alt="Diseño de sonrisa completo terminado" loading="lazy" />
+                    <figcaption><span>Diseño completo</span>Resultado del caso</figcaption>
+                </figure>
+      </div>
+    </section>
+
+    <section class="video-section" id="videos" aria-labelledby="videos-titulo">
+      <div class="section-heading">
+        <span class="eyebrow">Videos</span>
+        <h2 id="videos-titulo">Conoce más sobre el proceso.</h2>
+        <p>Conoce la experiencia y la atención que acompaña cada diseño de sonrisa.</p>
+      </div>
+      <div class="video-grid">
+        <figure class="video-card">
+          <div class="video-frame">
+            <video controls playsinline preload="metadata" aria-label="Video testimonio de paciente">
+              <source src="videos/testimonio.mp4" type="video/mp4">
+              Tu navegador no admite la reproducción de video.
+            </video>
+          </div>
+          <figcaption><span>Testimonio</span>Conoce la experiencia de uno de nuestros pacientes.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="consultation-section" id="contacto" aria-labelledby="contacto-titulo">
             <div>
                 <span class="eyebrow">Primera valoración</span>
                 <h2 id="contacto-titulo">El primer paso es una conversación clara sobre tu sonrisa.</h2>
@@ -1836,7 +2048,7 @@
 
                 tl.from('.header', { y: -50, opacity: 0, duration: 1, ease: 'power2.out' })
                     .from('.hero', { y: 30, opacity: 0, duration: 1, ease: 'power2.out' }, '-=0.4')
-                    .from('.smile-process-section, .consultation-section', { y: 40, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power2.out' }, '-=0.3')
+                    .from('.smile-process-section, .results-section, .video-section, .consultation-section', { y: 40, opacity: 0, duration: 0.8, stagger: 0.12, ease: 'power2.out' }, '-=0.3')
                     .from('.footer-text', { opacity: 0, y: 20, duration: 0.8, ease: 'power2.out' }, '-=0.3');
 
                 document.querySelectorAll('.hero-image img').forEach((img) => {
@@ -1849,6 +2061,21 @@
 
                     if (img.complete) animateImage();
                     else img.addEventListener('load', animateImage, { once: true });
+                });
+            }
+
+            if (!reduceMotion) {
+                document.querySelectorAll('.smile-process-card, .case-figure').forEach((card) => {
+                    const animateCard = () => {
+                        card.classList.remove('is-moving');
+                        void card.offsetWidth;
+                        card.classList.add('is-moving');
+                    };
+
+                    card.addEventListener('click', animateCard);
+                    card.addEventListener('animationend', (event) => {
+                        if (event.animationName === 'photo-card-click') card.classList.remove('is-moving');
+                    });
                 });
             }
         });
